@@ -13,11 +13,11 @@ public class HomeController {
         return "/home";
     }*/
     @Value("${spring.application.name}")
-    String apppName;
+    String appName;
 
     @GetMapping("/")
     public String homePage(Model model) {
-        model.addAttribute("appName", apppName);
+        model.addAttribute("appName", appName);
         return "home";
     }
 }
