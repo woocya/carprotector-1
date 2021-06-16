@@ -32,4 +32,11 @@ public class HomeController {
         model.addAttribute("car", myCar);
         return "/mainpage";
     }
+
+    @GetMapping("/editCar")
+    public String showMyCarToEdit(Model model) {
+        Car myCar = carService.getMyCar();
+        model.addAttribute("car", myCar);
+        return "/editCar";
+    }
 }
