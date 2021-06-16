@@ -9,7 +9,6 @@ import java.time.Month;
 import java.sql.Time;
 
 @Configuration
-@EnableWebMvc
 @ComponentScan
 public class CarService {
 

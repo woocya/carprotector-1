@@ -15,7 +15,23 @@ public class Location {
         return coordinates.returnStringCoordinates() + " ul. " + street;
     }
 
-/*public void generateLocation(double minLatitude, double maxLatitude, double minLongitude, double maxLongitude) {
+    public Coordinates getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    /*public void generateLocation(double minLatitude, double maxLatitude, double minLongitude, double maxLongitude) {
         Random r = new Random();
         latitude = minLatitude + (maxLatitude - minLatitude) * r.nextDouble();
         longitude = minLongitude + (maxLongitude - minLongitude) * r.nextDouble();

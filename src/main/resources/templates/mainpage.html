@@ -7,141 +7,144 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
         crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="C:\Users\ja\IdeaProjets\carprotector 1\src\main\resources\templates\mainpagestyle.css">
+  <link rel="stylesheet" href="/myStyle.css">
 </head>
 
 <body>
-<div class="container">
-  <div class="main">
-    <div class="topbar">
-      <a href="">Logout</a>
-      <a href="">Settings</a>
-    </div>
-    <div class="row">
-      <div class="col-md-4 mt-1">
-        <div class="card mb-3 content">
-          <div class="card text-center sidebar">
+  <div class="container">
+    <div class="main">
+      <div class="topbar">
+        <a href="">Logout</a>
+        <a href="">Settings</a>
+      </div>
+      <div class="row">
+        <div class="col-md-4 mt-1">
+          <div class="card mb-3 text-center sidebar">
             <div class="card-body">
-              <img src="C:\Users\ja\IdeaProjets\carprotector 1\src\main\resources\templates\car.jpg" class="rounded-circle" width="150">
+              <img src="/car.jpg" class="rounded-circle" width="150">
               <div class="mt-3">
                 <h3>My Car</h3>
               </div>
               <div class="row">
                 <div class="col-md">
-                  <h5><a href="">Model</a></h5>
+                  <h5>Model</h5>
                 </div>
                 <div class="col-md text-secondary">
-                  <p><span th:text="${car.model}">Toyota CH-R</span></p>
+                  <span th:text="${car.model}">Model of your car</span>
                 </div>
               </div>
               <hr>
               <div class="row">
                 <div class="col-md">
-                  <h5><a href="">Year of production</a></h5>
+                  <h5>Year of production</h5>
                 </div>
                 <div class="col-md text-secondary">
-                  2018
+                  <span th:text="${car.yearOfProduction}">The year</span>
                 </div>
               </div>
               <hr>
               <div class="row">
                 <div class="col-md">
-                  <h5><a href="">Version</a></h5>
+                  <h5>Version</h5>
                 </div>
                 <div class="col-md text-secondary">
-                  Hybrid
+                  <span th:text="${car.version}">Engine version</span>
                 </div>
               </div>
               <hr>
               <div class="row">
                 <div class="col-md">
-                  <h5><a href="">Registration Number</a></h5>
+                  <h5>Registration Number</h5>
                 </div>
                 <div class="col-md text-secondary">
-                  EL-345WR
+                  <span th:text="${car.registrationNumber}">The plates</span>
                 </div>
               </div>
               <hr>
               <div class="row">
                 <div class="col-md">
-                  <h5><a href="">Insurance valid until</a></h5>
+                  <h5>Insurance valid until</h5>
                 </div>
                 <div class="col-md text-secondary">
-                  2022-03-04
+                  <span th:text="${car.insuranceValid}">Date</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-8 mt-1">
-        <div class="card mb-3 content">
-          <h1 class="m-3 pt-3">State</h1>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-3">
-                <h5>Location</h5>
+        <div class="col-md-8 mt-1">
+          <div class="card mb-3 content">
+            <h1 class="m-3">State</h1>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-3">
+                  <h5>Location</h5>
+                </div>
+                <div class="col-md-9 text-secondary">
+                  <span th:text="${car.state.location.coordinates.returnStringCoordinates}">Coordinates</span>
+                    <br>ul. <span th:text="${car.state.location.street}">Coordinates</span>
+                </div>
               </div>
-              <div class="col-md-9 text-secondary">
-                51.734, 19.484<br>ul. Kołowa
+              <hr>
+              <div class="row">
+                <div class="col-md-3">
+                  <h5>Engine State</h5>
+                </div>
+                <div class="col-md-9 text-secondary">
+                  <span th:text="${car.state.isEngineState}">state</span>
+                </div>
               </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-md-3">
-                <h5>Engine State</h5>
+              <hr>
+              <div class="row">
+                <div class="col-md-3">
+                  <h5>Date of last start</h5>
+                </div>
+                <div class="col-md-9 text-secondary">
+                  <span th:text="${car.state.dateOfLastStart}">Some Date</span>
+                  <br><span th:text="${car.state.timeOfLastStart}">Some time</span>
+                </div>
               </div>
-              <div class="col-md-9 text-secondary">
-                on
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-md-3">
-                <h5>Date of last start</h5>
-              </div>
-              <div class="col-md-9 text-secondary">
-                8th June 2021<br>10:23:50
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-md-3">
-                <h5>Motion Detector</h5>
-              </div>
-              <div class="col-md-9 text-secondary">
-                motion detected
+              <hr>
+              <div class="row">
+                <div class="col-md-3">
+                  <h5>Motion Detector</h5>
+                </div>
+                <div class="col-md-9 text-secondary">
+                  <span th:text="${car.state.isMotion}">motion</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="card mb-3 content">
-          <h1 class="m-3">Vehicle Limitations</h1>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-3">
-                <h5>Allowed time of use</h5>
+          <div class="card mb-3 content">
+            <h1 class="m-3">Vehicle Limitations</h1>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-3">
+                  <h5>Allowed time of use</h5>
+                </div>
+                <div class="col-md-9 text-secondary">
+                  <span th:text="${car.limits.startTimeOfUse}">Start time</span>
+                  <br><span th:text="${car.limits.endTimeOfUse}">End time</span>
+                </div>
               </div>
-              <div class="col-md-9 text-secondary">
-                Mon-Fri 08:00-20:00<br>Sat-Sun 10:00 23:00
+              <hr>
+              <div class="row">
+                <div class="col-md-3">
+                  <h5>Allowed location range</h5>
+                </div>
+                <div class="col-md-9 text-secondary">
+                  <span th:text="${car.limits.allowedRangeMin.returnStringCoordinates}">min</span>
+                  <br><span th:text="${car.limits.allowedRangeMax.returnStringCoordinates}">max</span>
+                </div>
               </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-md-3">
-                <h5>Allowed location range</h5>
-              </div>
-              <div class="col-md-9 text-secondary">
-                51.65 - 51.9N<br>19.2 - 19.6E
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-md-3">
-                <h5>Allowed motion detected</h5>
-              </div>
-              <div class="col-md-9 text-secondary">
-                no motion (in 1 meter range)
+              <hr>
+              <div class="row">
+                <div class="col-md-3">
+                  <h5>Allowed motion detected</h5>
+                </div>
+                <div class="col-md-9 text-secondary">
+                  <span th:text="${car.limits.isAllowedMotion}">motion</span> (in 1 meter range)
+                </div>
               </div>
             </div>
           </div>
@@ -149,7 +152,6 @@
       </div>
     </div>
   </div>
-</div>
 </body>
 
 </html>
