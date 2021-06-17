@@ -42,7 +42,10 @@
                 <h5><a href="">Year of production</a></h5>
               </div>
               <div class="col-md text-secondary">
-                <input type="text" class="form-control" value="2018">
+                <form action="#" th:action="@{/editCar}" th:object="${car}" method="post">
+                  <input type="number" th:field="*{yearOfProduction}" />
+                  <input type="submit" value="Save" />
+                </form>
               </div>
             </div>
             <hr>
