@@ -18,66 +18,77 @@
       <a href="">Settings</a>
     </div>
     <div class="row">
-      <div class="col-md-4 mt-1">
-        <div class="card mb-3 text-center sidebar">
-          <div class="card-body">
-            <img src="car.jpg" class="rounded-circle" width="150">
-            <div class="mt-3">
-              <h3>My Car</h3>
-            </div>
-            <div class="row">
-              <div class="col-md">
-                <h5><a href="">Model</a></h5>
+      <form action="#" th:action="@{/editCar}" th:object="${car}" method="post">
+        <div class="col-md-4 mt-1">
+          <div class="card mb-3 text-center sidebar">
+            <div class="card-body">
+              <img src="car.jpg" class="rounded-circle" width="150">
+              <div class="mt-3">
+                <h3>My Car</h3>
               </div>
-              <div class="col-md text-secondary">
-                <form action="#" th:action="@{/editCar}" th:object="${car}" method="post">
-                  <input type="text" th:field="*{model}" />
-                  <input type="submit" value="Save" />
-                </form>
+              <div class="row">
+                <div class="col-md">
+                  <h5><a href="">Model</a></h5>
+                </div>
+                <div class="col-md text-secondary">
+                  <form action="#" th:action="@{/editCar}" th:object="${car}" method="post">
+                    <input type="text" th:attr="name='carModel'" />
+                    <input type="submit" value="Save" />
+                  </form>
+                </div>
               </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-md">
-                <h5><a href="">Year of production</a></h5>
+              <hr>
+              <div class="row">
+                <div class="col-md">
+                  <h5><a href="">Year of production</a></h5>
+                </div>
+                <div class="col-md text-secondary">
+                  <form action="#" th:action="@{/editCar}" th:object="${car}" method="post">
+                    <input type="number" th:attr="name='carYearOfProduction'" />
+                    <input type="submit" value="Save" />
+                  </form>
+                </div>
               </div>
-              <div class="col-md text-secondary">
-                <form action="#" th:action="@{/editCar}" th:object="${car}" method="post">
-                  <input type="number" th:field="*{yearOfProduction}" />
-                  <input type="submit" value="Save" />
-                </form>
+              <hr>
+              <div class="row">
+                <div class="col-md">
+                  <h5><a href="">Version</a></h5>
+                </div>
+                <div class="col-md text-secondary">
+                  <form action="#" th:action="@{/editCar}" th:object="${car}" method="post">
+                    <input type="text" th:attr="name='carVersion'" />
+                    <input type="submit" value="Save" />
+                  </form>
+                </div>
               </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-md">
-                <h5><a href="">Version</a></h5>
+              <hr>
+              <div class="row">
+                <div class="col-md">
+                  <h5><a href="">Registration Number</a></h5>
+                </div>
+                <div class="col-md text-secondary">
+                  <form action="#" th:action="@{/editCar}" th:object="${car}" method="post">
+                    <input type="text" th:attr="name='carRegNumber'" value="EL323PR" />
+                    <input type="submit" value="Save" />
+                  </form>
+                </div>
               </div>
-              <div class="col-md text-secondary">
-                <input type="text" class="form-control" value="Hybrid">
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-md">
-                <h5><a href="">Registration Number</a></h5>
-              </div>
-              <div class="col-md text-secondary">
-                <input type="text" class="form-control" value="EL-345WR">
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-md">
-                <h5><a href="">Insurance valid until</a></h5>
-              </div>
-              <div class="col-md text-secondary">
-                <input type="text" class="form-control" value="2022-03-04">
+              <hr>
+              <div class="row">
+                <div class="col-md">
+                  <h5><a href="">Insurance valid until</a></h5>
+                </div>
+                <div class="col-md text-secondary">
+                  <form action="#" th:action="@{/editCar}" th:object="${car}" method="post">
+                    <input type="date" th:attr="name='carInsurance'" />
+                    <input type="submit" value="Save" />
+                  </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </form>
       <div class="col-md-8 mt-1">
         <div class="card mb-3 content">
           <h1 class="m-3 pt-3">State</h1>

@@ -5,10 +5,9 @@ import com.protector.carprotector.model.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
 
 @Controller
 public class HomeController {
@@ -43,7 +42,13 @@ public class HomeController {
     }
 
     @PostMapping("/editCar")
-    public String submitChanges(@ModelAttribute Car myCar, Model model) {
+    public String submitChanges(@RequestParam String carModel, @RequestParam Integer carYearOfProduction, @RequestParam String carVersion, @RequestParam String carRegNumber, @RequestParam LocalDate carInsurance, Model model) {
+        Car myCar = carService.getMyCar();
+        myCar.setModel(carModel);
+        myCar.setYearOfProduction(carYearOfProduction);
+        myCar.setVersion(carVersion);
+        myCar.setRegistrationNumber(carRegNumber);
+        myCar.setInsuranceValid(carInsurance);
         model.addAttribute("car", myCar);
         return "mainpage";
     }
