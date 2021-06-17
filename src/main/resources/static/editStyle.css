@@ -42,7 +42,7 @@ body{
     border-color: #9acd32;
 }
 
-.card button{
+.card input[type=submit]{
   margin-left: 10px;
   padding: 8px 15px;
   background-color: #77b300;
