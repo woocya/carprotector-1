@@ -32,19 +32,19 @@ public class HomeController {
     public String showMyCar(Model model) {
         Car myCar = carService.getMyCar();
         model.addAttribute("car", myCar);
-        return "/mainpage";
+        return "mainpage";
     }
 
     @GetMapping("/editCar")
     public String showMyCarToEdit(Model model) {
         Car myCar = carService.getMyCar();
         model.addAttribute("car", myCar);
-        return "/editCar";
+        return "editCar";
     }
 
     @PostMapping("/editCar")
     public String submitChanges(@ModelAttribute Car myCar, Model model) {
         model.addAttribute("car", myCar);
-        return "/mainpage";
+        return "mainpage";
     }
 }
