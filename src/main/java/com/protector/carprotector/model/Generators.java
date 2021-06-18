@@ -3,10 +3,7 @@ package com.protector.carprotector.model;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class Generators {
     Map<Coordinates, String> place = new HashMap<>();

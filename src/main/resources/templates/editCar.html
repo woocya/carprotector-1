@@ -15,90 +15,84 @@
   <div class="main">
     <div class="topbar">
       <a href="">Logout</a>
-      <a href="">Settings</a>
+      <a href="editCar">Settings</a>
     </div>
     <div class="row">
-      <form action="#" th:action="@{/editCar}" th:object="${car}" method="post">
-        <div class="col-md-4 mt-1">
-          <div class="card mb-3 text-center sidebar">
-            <div class="card-body">
+      <div class="col-md-4 mt-1">
+        <div class="card mb-3 text-center sidebar">
+          <div class="card-body">
+            <form action="#" th:action="@{/editCar}" th:object="${car}" method="post">
               <img src="car.jpg" class="rounded-circle" width="150">
               <div class="mt-3">
                 <h3>My Car</h3>
               </div>
               <div class="row">
                 <div class="col-md">
-                  <h5><a href="">Model</a></h5>
+                  <h5>Model</h5>
                 </div>
+              </div>
+              <div class="row">
                 <div class="col-md text-secondary">
-                  <form action="#" th:action="@{/editCar}" th:object="${car}" method="post">
                     <input type="text" th:attr="name='carModel'" />
-                    <input type="submit" value="Save" />
-                  </form>
                 </div>
               </div>
               <hr>
               <div class="row">
                 <div class="col-md">
-                  <h5><a href="">Year of production</a></h5>
+                  <h5>Year of production</h5>
                 </div>
+                <br>
                 <div class="col-md text-secondary">
-                  <form action="#" th:action="@{/editCar}" th:object="${car}" method="post">
                     <input type="number" th:attr="name='carYearOfProduction'" />
-                    <input type="submit" value="Save" />
-                  </form>
                 </div>
               </div>
               <hr>
               <div class="row">
                 <div class="col-md">
-                  <h5><a href="">Version</a></h5>
+                  <h5>Version</h5>
                 </div>
+                <br>
                 <div class="col-md text-secondary">
-                  <form action="#" th:action="@{/editCar}" th:object="${car}" method="post">
                     <input type="text" th:attr="name='carVersion'" />
-                    <input type="submit" value="Save" />
-                  </form>
                 </div>
               </div>
               <hr>
               <div class="row">
                 <div class="col-md">
-                  <h5><a href="">Registration Number</a></h5>
+                  <h5>Registration Number</h5>
                 </div>
+                <br>
                 <div class="col-md text-secondary">
-                  <form action="#" th:action="@{/editCar}" th:object="${car}" method="post">
                     <input type="text" th:attr="name='carRegNumber'" value="EL323PR" />
-                    <input type="submit" value="Save" />
-                  </form>
                 </div>
               </div>
               <hr>
               <div class="row">
                 <div class="col-md">
-                  <h5><a href="">Insurance valid until</a></h5>
-                </div>
-                <div class="col-md text-secondary">
-                  <form action="#" th:action="@{/editCar}" th:object="${car}" method="post">
-                    <input type="date" th:attr="name='carInsurance'" />
-                    <input type="submit" value="Save" />
-                  </form>
+                  <h5>Insurance valid until<br></h5>
                 </div>
               </div>
-            </div>
+              <div class="row">
+                <div class="col-md text-secondary">
+                    <input type="date" th:attr="name='carInsurance'" />
+                </div>
+              </div>
+              <input type="submit" value="Save" />
+            </form>
           </div>
         </div>
-      </form>
+        </div>
       <div class="col-md-8 mt-1">
         <div class="card mb-3 content">
-          <h1 class="m-3 pt-3">State</h1>
+          <h1 class="m-3">State</h1>
           <div class="card-body">
             <div class="row">
               <div class="col-md-3">
                 <h5>Location</h5>
               </div>
               <div class="col-md-9 text-secondary">
-                51.734, 19.484<br>ul. Kołowa
+                <span th:text="${car.state.location.coordinates.returnStringCoordinates}">Coordinates</span>
+                <br>ul. <span th:text="${car.state.location.street}">Coordinates</span>
               </div>
             </div>
             <hr>
@@ -107,7 +101,7 @@
                 <h5>Engine State</h5>
               </div>
               <div class="col-md-9 text-secondary">
-                on
+                <span th:text="${car.state.isEngineState}">state</span>
               </div>
             </div>
             <hr>
@@ -116,7 +110,8 @@
                 <h5>Date of last start</h5>
               </div>
               <div class="col-md-9 text-secondary">
-                8th June 2021<br>10:23:50
+                <span th:text="${car.state.dateOfLastStart}">Some Date</span>
+                <br><span th:text="${car.state.timeOfLastStart}">Some time</span>
               </div>
             </div>
             <hr>
@@ -125,7 +120,7 @@
                 <h5>Motion Detector</h5>
               </div>
               <div class="col-md-9 text-secondary">
-                motion detected
+                <span th:text="${car.state.isMotion}">motion</span>
               </div>
             </div>
           </div>
