@@ -7,6 +7,47 @@ public class Coordinates {
     private double latitude;
     private double longitude;
     String dirLatitude;
+
+    public TreeMap<String, Double> getFullCoordinates() {
+        return fullCoordinates;
+    }
+
+    public void setFullCoordinates(TreeMap<String, Double> fullCoordinates) {
+        this.fullCoordinates = fullCoordinates;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getDirLatitude() {
+        return dirLatitude;
+    }
+
+    public void setDirLatitude(String dirLatitude) {
+        this.dirLatitude = dirLatitude;
+    }
+
+    public String getDirLongitude() {
+        return dirLongitude;
+    }
+
+    public void setDirLongitude(String dirLongitude) {
+        this.dirLongitude = dirLongitude;
+    }
+
     String dirLongitude;
 
     public Coordinates(double latitude, String dirLatitude, double longitude, String dirLongitude) {

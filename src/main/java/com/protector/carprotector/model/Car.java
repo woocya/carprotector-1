@@ -1,5 +1,8 @@
 package com.protector.carprotector.model;
 
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.sql.Time;
 import java.time.LocalDate;
 
 public class Car {
@@ -63,8 +66,21 @@ public class Car {
         return limits;
     }
 
-    public void setLimits(Limitations limits) {
-        this.limits = limits;
+    public void setLimits(Time startTimeOfUse, Time endTimeOfUse, Double carStartLatitude, String carStartLatitudeDir, Double carStartLongitude, String carStartLongitudeDir, Double carEndLatitude, String carEndLatitudeDir, Double carEndLongitude, String carEndLongitudeDir, boolean allowedMotion) {
+        this.limits.startTimeOfUse = startTimeOfUse;
+        this.limits.endTimeOfUse = endTimeOfUse;
+        //---------------------------------------------------------------------
+        this.limits.allowedRangeMin.setLatitude(carStartLatitude);
+        this.limits.allowedRangeMin.setDirLatitude(carStartLatitudeDir);
+        this.limits.allowedRangeMin.setLongitude(carStartLongitude);
+        this.limits.allowedRangeMin.setDirLongitude(carStartLongitudeDir);
+        //---------------------------------------------------------------------
+        this.limits.allowedRangeMax.setLatitude(carEndLatitude);
+        this.limits.allowedRangeMax.setDirLatitude(carEndLatitudeDir);
+        this.limits.allowedRangeMax.setLongitude(carEndLongitude);
+        this.limits.allowedRangeMax.setDirLongitude(carEndLongitudeDir);
+
+        this.limits.allowedMotion = allowedMotion;
     }
 
     @Override

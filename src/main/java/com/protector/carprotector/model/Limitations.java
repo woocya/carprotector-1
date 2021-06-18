@@ -49,7 +49,7 @@ public class Limitations {
         this.allowedRangeMax = allowedRangeMax;
     }
 
-    public String isAllowedMotion() {
+    public String getAllowedMotion() {
         if (allowedMotion == false) return "no motion detected";
         else return "motion detected";
     }
