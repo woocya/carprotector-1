@@ -2,16 +2,17 @@ package com.protector.carprotector.model;
 
 import java.sql.Time;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class StateOfCar {
 
     Location location;
     boolean engineState;
     LocalDate dateOfLastStart;
-    Time timeOfLastStart;
+    LocalTime timeOfLastStart;
     boolean motion;
 
-    public StateOfCar(Location location, boolean engineState, LocalDate dateOfLastStart, Time timeOfLastStart, boolean motion) {
+    public StateOfCar(Location location, boolean engineState, LocalDate dateOfLastStart, LocalTime timeOfLastStart, boolean motion) {
         this.location = location;
         this.engineState = engineState;
         this.dateOfLastStart = dateOfLastStart;
@@ -44,17 +45,18 @@ public class StateOfCar {
         this.dateOfLastStart = dateOfLastStart;
     }
 
-    public Time getTimeOfLastStart() {
+    public LocalTime getTimeOfLastStart() {
         return timeOfLastStart;
     }
 
-    public void setTimeOfLastStart(Time timeOfLastStart) {
+    public void setTimeOfLastStart(LocalTime timeOfLastStart) {
         this.timeOfLastStart = timeOfLastStart;
     }
 
-    public String isMotion() {
-        if (motion == false) return "no motion detected";
-        else return "motion detected";
+    public boolean isMotion() {
+        //if (motion == false) return "no motion detected";
+        //else return "motion detected";
+        return motion;
     }
 
     public void setMotion(boolean motion) {

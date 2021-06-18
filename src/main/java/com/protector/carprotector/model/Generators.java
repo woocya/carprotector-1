@@ -1,8 +1,11 @@
 package com.protector.carprotector.model;
 
 import java.sql.Time;
+import java.text.Format;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Generators {
@@ -57,10 +60,13 @@ public class Generators {
         return null;
     }
 
-    public Time generateTime() {
+    public LocalTime generateTime() {
         final Random random = new Random();
         final int millisInDay = 24*60*60*1000;
-        return new Time((long)random.nextInt(millisInDay));
+        LocalTime localTime = LocalTime.now();
+        localTime.minusHours(generateInt(0,10));
+        localTime.minusMinutes(generateInt(0,10));
+        return localTime.of(generateInt(0,23),generateInt(0,59));
     }
 
     public LocalDate generateDate(int startYear, Month startMonth, int startDay, int endYear, Month endMonth, int endDay) {

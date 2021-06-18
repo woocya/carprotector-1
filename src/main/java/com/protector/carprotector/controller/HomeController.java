@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Time;
+import java.time.LocalTime;
 import java.time.LocalDate;
 
 @Controller
@@ -31,7 +31,7 @@ public class HomeController {
     }
 
     @PostMapping("/editCar")
-    public String submitChanges(@RequestParam String carModel, @RequestParam Integer carYearOfProduction, @RequestParam String carVersion, @RequestParam String carRegNumber, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate carInsurance, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.TIME) Time carStartTime, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.TIME) Time carEndTime, @RequestParam Double carStartLatitude, @RequestParam String carStartLatitudeDir, @RequestParam Double carStartLongitude, @RequestParam String carStartLongitudeDir, @RequestParam Double carEndLatitude, @RequestParam String carEndLatitudeDir, @RequestParam Double carEndLongitude, @RequestParam String carEndLongitudeDir, @RequestParam boolean carAllowedMotion, Model model) {
+    public String submitChanges(@RequestParam String carModel, @RequestParam Integer carYearOfProduction, @RequestParam String carVersion, @RequestParam String carRegNumber, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate carInsurance, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.TIME) LocalTime carStartTime, @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.TIME) LocalTime carEndTime, @RequestParam Double carStartLatitude, @RequestParam String carStartLatitudeDir, @RequestParam Double carStartLongitude, @RequestParam String carStartLongitudeDir, @RequestParam Double carEndLatitude, @RequestParam String carEndLatitudeDir, @RequestParam Double carEndLongitude, @RequestParam String carEndLongitudeDir, @RequestParam boolean carAllowedMotion, Model model) {
         Car myCar = carService.getMyCar();
         myCar.setModel(carModel);
         myCar.setYearOfProduction(carYearOfProduction);
@@ -40,6 +40,6 @@ public class HomeController {
         myCar.setInsuranceValid(carInsurance);
         myCar.setLimits(carStartTime, carEndTime, carStartLatitude, carStartLatitudeDir, carStartLongitude, carStartLongitudeDir, carEndLatitude, carEndLatitudeDir, carEndLongitude, carEndLongitudeDir, carAllowedMotion);
         model.addAttribute("car", myCar);
-        return "mainpage";
+        return "/mainpage";
     }
 }

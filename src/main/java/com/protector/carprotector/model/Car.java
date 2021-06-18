@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.sql.Time;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Car {
     private String model;
@@ -66,7 +67,7 @@ public class Car {
         return limits;
     }
 
-    public void setLimits(Time startTimeOfUse, Time endTimeOfUse, Double carStartLatitude, String carStartLatitudeDir, Double carStartLongitude, String carStartLongitudeDir, Double carEndLatitude, String carEndLatitudeDir, Double carEndLongitude, String carEndLongitudeDir, boolean allowedMotion) {
+    public void setLimits(LocalTime startTimeOfUse, LocalTime endTimeOfUse, Double carStartLatitude, String carStartLatitudeDir, Double carStartLongitude, String carStartLongitudeDir, Double carEndLatitude, String carEndLatitudeDir, Double carEndLongitude, String carEndLongitudeDir, boolean allowedMotion) {
         this.limits.startTimeOfUse = startTimeOfUse;
         this.limits.endTimeOfUse = endTimeOfUse;
         //---------------------------------------------------------------------

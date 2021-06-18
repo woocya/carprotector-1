@@ -1,15 +1,15 @@
 package com.protector.carprotector.model;
 
-import java.sql.Time;
+import java.time.LocalTime;
 
 public class Limitations {
-    Time startTimeOfUse;
-    Time endTimeOfUse;
+    LocalTime startTimeOfUse;
+    LocalTime endTimeOfUse;
     Coordinates allowedRangeMin;
     Coordinates allowedRangeMax;
     boolean allowedMotion;
 
-    public Limitations(Time startTimeOfUse, Time endTimeOfUse, Coordinates allowedRangeMin, Coordinates allowedRangeMax, boolean allowedMotion) {
+    public Limitations(LocalTime startTimeOfUse, LocalTime endTimeOfUse, Coordinates allowedRangeMin, Coordinates allowedRangeMax, boolean allowedMotion) {
         this.startTimeOfUse = startTimeOfUse;
         this.endTimeOfUse = endTimeOfUse;
         this.allowedRangeMin = allowedRangeMin;
@@ -17,19 +17,19 @@ public class Limitations {
         this.allowedMotion = allowedMotion;
     }
 
-    public Time getStartTimeOfUse() {
+    public LocalTime getStartTimeOfUse() {
         return startTimeOfUse;
     }
 
-    public void setStartTimeOfUse(Time startTimeOfUse) {
+    public void setStartTimeOfUse(LocalTime startTimeOfUse) {
         this.startTimeOfUse = startTimeOfUse;
     }
 
-    public Time getEndTimeOfUse() {
+    public LocalTime getEndTimeOfUse() {
         return endTimeOfUse;
     }
 
-    public void setEndTimeOfUse(Time endTimeOfUse) {
+    public void setEndTimeOfUse(LocalTime endTimeOfUse) {
         this.endTimeOfUse = endTimeOfUse;
     }
 
@@ -49,9 +49,10 @@ public class Limitations {
         this.allowedRangeMax = allowedRangeMax;
     }
 
-    public String getAllowedMotion() {
-        if (allowedMotion == false) return "no motion detected";
-        else return "motion detected";
+    public boolean isAllowedMotion() {
+        //if (allowedMotion == false) return "no motion detected";
+        //else return "motion detected";
+        return allowedMotion;
     }
 
     public void setAllowedMotion(boolean allowedMotion) {

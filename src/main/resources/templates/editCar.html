@@ -18,10 +18,10 @@
       <a href="editCar">Settings</a>
     </div>
     <div class="row">
-      <div class="col-md-4 mt-1">
-        <div class="card mb-3 text-center sidebar">
-          <div class="card-body">
-            <form action="#" th:action="@{/editCar}" th:object="${car}" method="post">
+      <form action="#" th:action="@{/editCar}" th:object="${car}" method="post">
+        <div class="col-md-4 mt-1">
+          <div class="card mb-3 text-center sidebar">
+            <div class="card-body">
               <img src="car.jpg" class="rounded-circle" width="150">
               <div class="mt-3">
                 <h3>My Car</h3>
@@ -77,57 +77,55 @@
                 </div>
               </div>
               <input type="submit" value="Save" />
-            </form>
-          </div>
-        </div>
-        </div>
-      <div class="col-md-8 mt-1">
-        <div class="card mb-3 content">
-          <h1 class="m-3">State</h1>
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-3">
-                <h5>Location</h5>
-              </div>
-              <div class="col-md-9 text-secondary">
-                <span th:text="${car.state.location.coordinates.returnStringCoordinates}">Coordinates</span>
-                <br>ul. <span th:text="${car.state.location.street}">Coordinates</span>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-md-3">
-                <h5>Engine State</h5>
-              </div>
-              <div class="col-md-9 text-secondary">
-                <span th:text="${car.state.isEngineState}">state</span>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-md-3">
-                <h5>Date of last start</h5>
-              </div>
-              <div class="col-md-9 text-secondary">
-                <span th:text="${car.state.dateOfLastStart}">Some Date</span>
-                <br><span th:text="${car.state.timeOfLastStart}">Some time</span>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-md-3">
-                <h5>Motion Detector</h5>
-              </div>
-              <div class="col-md-9 text-secondary">
-                <span th:text="${car.state.isMotion}">motion</span>
-              </div>
             </div>
           </div>
-        </div>
-        <div class="card mb-3 content">
-          <h1 class="m-3">Vehicle Limitations</h1>
-          <div class="card-body">
-            <form action="#" th:action="@{/editCar}" th:object="${car.limits}" method="post">
+          </div>
+        <div class="col-md-8 mt-1">
+          <div class="card mb-3 content">
+            <h1 class="m-3">State</h1>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-3">
+                  <h5>Location</h5>
+                </div>
+                <div class="col-md-9 text-secondary">
+                  <span th:text="${car.state.location.coordinates.returnStringCoordinates}">Coordinates</span>
+                  <br>ul. <span th:text="${car.state.location.street}">Coordinates</span>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-3">
+                  <h5>Engine State</h5>
+                </div>
+                <div class="col-md-9 text-secondary">
+                  <span th:text="${car.state.isEngineState}">state</span>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-3">
+                  <h5>Date of last start</h5>
+                </div>
+                <div class="col-md-9 text-secondary">
+                  <span th:text="${car.state.dateOfLastStart}">Some Date</span>
+                  <br><span th:text="${car.state.timeOfLastStart}">Some time</span>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-3">
+                  <h5>Motion Detector</h5>
+                </div>
+                <div class="col-md-9 text-secondary">
+                  <span th:text="${car.state.isMotion}">motion</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3 content">
+            <h1 class="m-3">Vehicle Limitations</h1>
+            <div class="card-body">
               <div class="row">
                 <div class="col-md-3">
                   <h5>Allowed time of use</h5>
@@ -145,10 +143,10 @@
                 <div class="col-md-9 text-secondary">
                   <input type="number" th:attr="name='carStartLatitude'" th:value="${car.limits.allowedRangeMin.latitude}"/> Min. latitude
                   <input type="text" th:attr="name='carStartLatitudeDir'" th:value="${car.limits.allowedRangeMin.dirLatitude}"/> Min. latitude direction
-                  <input type="number" th:attr="name='carStartLongitude'" th:value="${car.limits.allowedRangeMin.longitude}"/> Min. longitude
-                  <input type="text" th:attr="name='carStartLongitudeDir'" th:value="${car.limits.allowedRangeMin.dirLongitude}"/> Min. longitude direction<br>
                   <input type="number" th:attr="name='carEndLatitude'" th:value="${car.limits.allowedRangeMax.latitude}"/> Max. latitude
                   <input type="text" th:attr="name='carEndLatitudeDir'" th:value="${car.limits.allowedRangeMax.dirLatitude}"/> Max. latitude direction
+                  <input type="number" th:attr="name='carStartLongitude'" th:value="${car.limits.allowedRangeMin.longitude}"/> Min. longitude
+                  <input type="text" th:attr="name='carStartLongitudeDir'" th:value="${car.limits.allowedRangeMin.dirLongitude}"/> Min. longitude direction<br>
                   <input type="number" th:attr="name='carEndLongitude'" th:value="${car.limits.allowedRangeMax.longitude}"/> Max. longitude
                   <input type="text" th:attr="name='carEndLongitudeDir'" th:value="${car.limits.allowedRangeMax.dirLongitude}"/> Max. longitude direction
                 </div>
@@ -163,15 +161,10 @@
                   (in 1 meter range)
                 </div>
               </div>
-              <div class="row">
-                <div class="col-sm">
-                  <input type="submit" value="Save" />
-                </div>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </div>
