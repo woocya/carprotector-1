@@ -9,14 +9,24 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Long id;
+    @Column(name="model")
     private String model;
+    @Column(name="yearOfProduction")
     private Integer yearOfProduction;
+    @Column(name="version")
     private String version;
+    @Column(name="registrationNumber")
     private String registrationNumber;
+    @Column(name="insuranceValid")
     private LocalDate insuranceValid;
     // private StateOfCar state;
+    @OneToOne(optional = false)
     private Limitations limits;
+
+    @OneToOne(optional = false)
     private Engine engineState;
+
+    @OneToOne(optional = false)
     private Coordinates coordinates;
 
     public Long getId() {
@@ -82,8 +92,8 @@ public class Car {
 
     @OneToOne(optional = false)
     @JoinColumn(name="coordinates")
-    public Coordinates getCoordinates() {
-        return coordinates;
+    public String getCoordinates() {
+        return "coordinates";
     }
 
     public void setCoordinates(Coordinates coordinates) {
@@ -109,7 +119,8 @@ public class Car {
         this.engineState = engineState;
     }
 
-    @Column(name="limits")
+    @OneToOne(optional = false)
+    @JoinColumn(name="limits")
     public Limitations getLimits() {
         return limits;
     }

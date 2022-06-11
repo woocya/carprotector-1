@@ -1,8 +1,17 @@
 package com.protector.carprotector.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalTime;
 
+@Entity
 public class Limitations {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    private Long id;
+
     LocalTime startTimeOfUse;
     LocalTime endTimeOfUse;
     Coordinates allowedRangeMin;
@@ -15,6 +24,14 @@ public class Limitations {
         this.allowedRangeMin = allowedRangeMin;
         this.allowedRangeMax = allowedRangeMax;
         this.allowedMotion = allowedMotion;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public LocalTime getStartTimeOfUse() {
