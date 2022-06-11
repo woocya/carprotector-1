@@ -1,24 +1,29 @@
 package com.protector.carprotector.model;
 
-import java.sql.Time;
-import java.time.LocalDate;
-import java.time.LocalTime;
-
+// @Entity
 public class StateOfCar {
+/*    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;*/
 
     Location location;
-    boolean engineState;
-    LocalDate dateOfLastStart;
-    LocalTime timeOfLastStart;
-    boolean motion;
+    Engine engine;
 
-    public StateOfCar(Location location, boolean engineState, LocalDate dateOfLastStart, LocalTime timeOfLastStart, boolean motion) {
-        this.location = location;
-        this.engineState = engineState;
-        this.dateOfLastStart = dateOfLastStart;
-        this.timeOfLastStart = timeOfLastStart;
-        this.motion = motion;
+    public StateOfCar() {
     }
+
+    public StateOfCar(Location location, Engine engine) {
+        this.location = location;
+        this.engine = engine;
+    }
+/*
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }*/
 
     public Location getLocation() {
         return location;
@@ -28,42 +33,15 @@ public class StateOfCar {
         this.location = location;
     }
 
-    public String isEngineState() {
-        if (engineState == false) return "off";
-        else return "on";
+    public Engine getEngine() {
+        return engine;
     }
 
-    public void setEngineState(boolean engineState) {
-        this.engineState = engineState;
-    }
-
-    public LocalDate getDateOfLastStart() {
-        return dateOfLastStart;
-    }
-
-    public void setDateOfLastStart(LocalDate dateOfLastStart) {
-        this.dateOfLastStart = dateOfLastStart;
-    }
-
-    public LocalTime getTimeOfLastStart() {
-        return timeOfLastStart;
-    }
-
-    public void setTimeOfLastStart(LocalTime timeOfLastStart) {
-        this.timeOfLastStart = timeOfLastStart;
-    }
-
-    public boolean isMotion() {
-        //if (motion == false) return "no motion detected";
-        //else return "motion detected";
-        return motion;
-    }
-
-    public void setMotion(boolean motion) {
-        this.motion = motion;
+    public void setEngine(Engine engine) {
+        this.engine = engine;
     }
 
     public void printInfo() {
-        System.out.print("State info:\n\nLocation: " + location.returnStringLocation() + "\nEngine state:  " + engineState + "\nDate and time of last start: " + dateOfLastStart + " " + timeOfLastStart + "\nMotion detected: " + motion + "\n\n");
+        System.out.print("State info:\n\nLocation: " + location.returnStringLocation() + "\n\n");
     }
 }

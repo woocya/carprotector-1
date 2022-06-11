@@ -1,8 +1,7 @@
 package com.protector.carprotector.model;
 
-import java.util.Random;
-
 public class Location {
+
     private Coordinates coordinates;
     private String street;
 

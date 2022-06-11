@@ -1,3 +1,4 @@
+/*
 package com.protector.carprotector.controller;
 
 import com.protector.carprotector.model.Car;
@@ -16,12 +17,12 @@ import java.time.LocalTime;
 import java.util.Optional;
 
 @Controller
-public class HomeController {
+public class DataController {
 
     private CarRepo myCar;
 
     @Autowired
-    public HomeController(CarRepo car) {
+    public DataController(CarRepo car) {
         this.myCar = car;
     }
 
@@ -68,3 +69,4 @@ public class HomeController {
 
 
 }
+*/

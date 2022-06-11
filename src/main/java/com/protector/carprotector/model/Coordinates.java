@@ -1,12 +1,39 @@
 package com.protector.carprotector.model;
 
+import javax.persistence.*;
 import java.util.TreeMap;
 
+@Entity
 public class Coordinates {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    private Long id;
+
     TreeMap<String, Double> fullCoordinates = new TreeMap<>();
     private double latitude;
     private double longitude;
     String dirLatitude;
+    String dirLongitude;
+
+    public Coordinates() {
+    }
+
+    public Coordinates(double latitude, String dirLatitude, double longitude, String dirLongitude) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+        fullCoordinates.put(dirLatitude, latitude);
+        fullCoordinates.put(dirLongitude, longitude);
+        this.dirLatitude = dirLatitude;
+        this.dirLongitude = dirLongitude;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public TreeMap<String, Double> getFullCoordinates() {
         return fullCoordinates;
@@ -45,17 +72,6 @@ public class Coordinates {
     }
 
     public void setDirLongitude(String dirLongitude) {
-        this.dirLongitude = dirLongitude;
-    }
-
-    String dirLongitude;
-
-    public Coordinates(double latitude, String dirLatitude, double longitude, String dirLongitude) {
-        this.latitude = latitude;
-        this.longitude = longitude;
-        fullCoordinates.put(dirLatitude, latitude);
-        fullCoordinates.put(dirLongitude, longitude);
-        this.dirLatitude = dirLatitude;
         this.dirLongitude = dirLongitude;
     }
 
