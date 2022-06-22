@@ -9,30 +9,50 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private Long id;
+
     @Column(name="model")
     private String model;
+
     @Column(name="yearOfProduction")
     private Integer yearOfProduction;
+
     @Column(name="version")
     private String version;
+
     @Column(name="registrationNumber")
     private String registrationNumber;
+
     @Column(name="insuranceValid")
     private LocalDate insuranceValid;
+
     // private StateOfCar state;
-    @OneToOne(optional = false)
+    @OneToOne(cascade = CascadeType.ALL)
     private Limitations limits;
 
-    @OneToOne(optional = false)
+    @OneToOne(cascade = CascadeType.ALL)
     private Engine engineState;
 
-    @OneToOne(optional = false)
+    @OneToOne(cascade = CascadeType.ALL)
     private Coordinates coordinates;
+
+
+    public Car() {}
+    public Car(Long id, String model, int yearOfProduction, String version, String registrationNumber, LocalDate insuranceValid, Limitations limits, Engine engineState, Coordinates coordinates) {
+        this.id = id;
+        this.model = model;
+        this.yearOfProduction = yearOfProduction;
+        this.version = version;
+        this.registrationNumber = registrationNumber;
+        this.insuranceValid = insuranceValid;
+        this.limits = limits;
+        this.engineState = engineState;
+        this.coordinates = coordinates;
+    }
+
 
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -41,7 +61,6 @@ public class Car {
     public String getModel() {
         return model;
     }
-
     public void setModel(String model) {
         this.model = model;
     }
@@ -50,7 +69,6 @@ public class Car {
     public Integer getYearOfProduction() {
         return yearOfProduction;
     }
-
     public void setYearOfProduction(Integer yearOfProduction) {
         this.yearOfProduction = yearOfProduction;
     }
@@ -59,7 +77,6 @@ public class Car {
     public String getVersion() {
         return version;
     }
-
     public void setVersion(String version) {
         this.version = version;
     }
@@ -68,7 +85,6 @@ public class Car {
     public String getRegistrationNumber() {
         return registrationNumber;
     }
-
     public void setRegistrationNumber(String registrationNumber) {
         this.registrationNumber = registrationNumber;
     }
@@ -77,29 +93,15 @@ public class Car {
     public LocalDate getInsuranceValid() {
         return insuranceValid;
     }
-
     public void setInsuranceValid(LocalDate insuranceValid) {
         this.insuranceValid = insuranceValid;
     }
 
-    /*public StateOfCar getState() {
-        return state;
-    }
-
-    public void setState(StateOfCar state) {
-        this.state = state;
-    }*/
-
     @OneToOne(optional = false)
     @JoinColumn(name="coordinates")
-    public String getCoordinates() {
-        return "coordinates";
+    public Coordinates getCoordinates() {
+        return coordinates;
     }
-
-    public void setCoordinates(Coordinates coordinates) {
-        this.coordinates = coordinates;
-    }
-
     public void setCoordinates(double latitude, String dirLatitude, double longitude, String dirLongitude) {
         this.coordinates.setLatitude(latitude);
         this.coordinates.setLongitude(longitude);
@@ -114,17 +116,13 @@ public class Car {
     public Engine getEngineState() {
         return engineState;
     }
-
     public void setEngineState(Engine engineState) {
         this.engineState = engineState;
     }
 
     @OneToOne(optional = false)
     @JoinColumn(name="limits")
-    public Limitations getLimits() {
-        return limits;
-    }
-
+    public Limitations getLimits() { return limits; }
     public void setLimits(LocalTime startTimeOfUse, LocalTime endTimeOfUse, Double carStartLatitude, String carStartLatitudeDir, Double carStartLongitude, String carStartLongitudeDir, Double carEndLatitude, String carEndLatitudeDir, Double carEndLongitude, String carEndLongitudeDir, boolean allowedMotion) {
         this.limits.startTimeOfUse = startTimeOfUse;
         this.limits.endTimeOfUse = endTimeOfUse;
@@ -142,6 +140,8 @@ public class Car {
         this.limits.allowedMotion = allowedMotion;
     }
 
+
+
     @Override
     public String toString() {
         return "Car{" +
@@ -152,16 +152,6 @@ public class Car {
                 ", insuranceValid=" + insuranceValid +
                 ", limits=" + limits +
                 '}';
-    }
-
-    public Car(Long id, String model, int yearOfProduction, String version, String registrationNumber, LocalDate insuranceValid, Limitations limits) {
-        this.id = id;
-        this.model = model;
-        this.yearOfProduction = yearOfProduction;
-        this.version = version;
-        this.registrationNumber = registrationNumber;
-        this.insuranceValid = insuranceValid;
-        this.limits = limits;
     }
 
     public void printInfo() {

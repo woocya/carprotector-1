@@ -81,17 +81,26 @@
                   <h5>Location</h5>
                 </div>
                 <div class="col-md-9 text-secondary">
-                  <span th:text="${car.state.location.coordinates.returnStringCoordinates}">Coordinates</span>
-                    <br>ul. <span th:text="${car.state.location.street}">Coordinates</span>
+                  <span th:text="${car.coordinates.returnStringCoordinates}">Coordinates</span>
+                    <br>ul. <span th:text="location">Location</span>
                 </div>
               </div>
               <hr>
               <div class="row">
                 <div class="col-md-3">
-                  <h5>Engine State</h5>
+                  <h5>Engine Status</h5>
                 </div>
                 <div class="col-md-9 text-secondary">
-                  <span th:text="${car.state.isEngineState}">state</span>
+                  <span th:text="${car.engineState.engineStatus}">state</span>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-3">
+                  <h5>Vehicle Speed</h5>
+                </div>
+                <div class="col-md-9 text-secondary">
+                  <span th:text="${car.engineState.vehicleSpeed}">vehicle speed</span>
                 </div>
               </div>
               <hr>
@@ -100,19 +109,19 @@
                   <h5>Date of last start</h5>
                 </div>
                 <div class="col-md-9 text-secondary">
-                  <span th:text="${car.state.dateOfLastStart}">Some Date</span>
-                  <br><span th:text="${car.state.timeOfLastStart}">Some time</span>
+                  <span th:text="${car.engineState.dateOfLastStart}">Some date</span>
+                  <br><span th:text="${car.engineState.timeOfLastStart}">Some time</span>
                 </div>
               </div>
               <hr>
-              <div class="row">
+              <!--<div class="row">
                 <div class="col-md-3">
                   <h5>Motion Detector</h5>
                 </div>
                 <div class="col-md-9 text-secondary">
-                  <span th:text="${car.state.motion}">motion</span>
+                  <span th:text="motion">motion</span>
                 </div>
-              </div>
+              </div>-->
             </div>
           </div>
           <div class="card mb-3 content">

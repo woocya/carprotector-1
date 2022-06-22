@@ -25,6 +25,16 @@ public class HomeController {
         this.myCar = car;
     }
 
+    @GetMapping("/mainpage")
+    public String showMyCar(Model model) {
+        Optional<Car> foundCar = myCar.findById(1L);
+        if (foundCar.isPresent()) {
+            Car _car = foundCar.get();
+            model.addAttribute("car", _car);
+        }
+        return "mainpage";
+    }
+
     @PutMapping("/mainpage")
     public String modifyCoordinates(@RequestParam Long id, @RequestParam double latitude, @RequestParam String dirLatitude, @RequestParam double longitude, @RequestParam String dirLongitude) {
         //Car myCar = carService.getMyCar();
@@ -32,6 +42,7 @@ public class HomeController {
         if (foundCar.isPresent()) {
             Car _car = foundCar.get();
             _car.setCoordinates(latitude, dirLatitude, longitude, dirLongitude);
+            myCar.save(_car);
         }
         return "mainpage";
     }
@@ -62,6 +73,7 @@ public class HomeController {
             _car.setInsuranceValid(carInsurance);
             _car.setLimits(carStartTime, carEndTime, carStartLatitude, carStartLatitudeDir, carStartLongitude, carStartLongitudeDir, carEndLatitude, carEndLatitudeDir, carEndLongitude, carEndLongitudeDir, carAllowedMotion);
             model.addAttribute("car", _car);
+            myCar.save(_car);
         }
         return "/mainpage";
     }

@@ -13,22 +13,19 @@ public class Engine {
     @Id
     private Long id;
 
-    boolean engineState;
-    boolean motion;
-    LocalDate dateOfLastStart;
-    LocalTime timeOfLastStart;
+    float vehicleSpeed;
+    boolean engineStatus;
+    LocalDate dateOfLastStart; //may not work
+    LocalTime timeOfLastStart; //may not work
 
-    public Engine(boolean engineState, boolean motion, LocalDate dateOfLastStart, LocalTime timeOfLastStart) {
-        this.engineState = engineState;
-        this.motion = motion;
+    public Engine(float vehicleSpeed, boolean engineStatus, LocalDate dateOfLastStart, LocalTime timeOfLastStart) {
+        this.vehicleSpeed = vehicleSpeed;
+        this.engineStatus = engineStatus;
         this.dateOfLastStart = dateOfLastStart;
         this.timeOfLastStart = timeOfLastStart;
     }
 
-    public String isEngineState() {
-        if (engineState == false) return "off";
-        else return "on";
-    }
+    public Engine() {}
 
     public Long getId() {
         return id;
@@ -38,17 +35,20 @@ public class Engine {
         this.id = id;
     }
 
-
-    public void setEngineState(boolean engineState) {
-        this.engineState = engineState;
+    public float getVehicleSpeed() {
+        return vehicleSpeed;
     }
 
-    public boolean isMotion() {
-        return motion;
+    public void setVehicleSpeed(float vehicleSpeed) {
+        this.vehicleSpeed = vehicleSpeed;
     }
 
-    public void setMotion(boolean motion) {
-        this.motion = motion;
+    public boolean isEngineStatus() {
+        return engineStatus;
+    }
+
+    public void setEngineStatus(boolean engineStatus) {
+        this.engineStatus = engineStatus;
     }
 
     public LocalDate getDateOfLastStart() {

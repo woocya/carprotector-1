@@ -1,9 +1,6 @@
 package com.protector.carprotector.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalTime;
 
 @Entity
@@ -14,9 +11,13 @@ public class Limitations {
 
     LocalTime startTimeOfUse;
     LocalTime endTimeOfUse;
+    @OneToOne(cascade = CascadeType.ALL)
     Coordinates allowedRangeMin;
+    @OneToOne(cascade = CascadeType.ALL)
     Coordinates allowedRangeMax;
     boolean allowedMotion;
+
+    public Limitations() {}
 
     public Limitations(LocalTime startTimeOfUse, LocalTime endTimeOfUse, Coordinates allowedRangeMin, Coordinates allowedRangeMax, boolean allowedMotion) {
         this.startTimeOfUse = startTimeOfUse;
