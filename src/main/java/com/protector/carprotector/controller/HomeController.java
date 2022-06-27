@@ -36,13 +36,14 @@ public class HomeController {
     }
 
     @PutMapping("/mainpage")
-    public String modifyCoordinates(@RequestParam Long id, @RequestParam double latitude, @RequestParam String dirLatitude, @RequestParam double longitude, @RequestParam String dirLongitude) {
+    public String modifyCoordinates(@RequestParam Long id, @RequestParam double latitude, @RequestParam String dirLatitude, @RequestParam double longitude, @RequestParam String dirLongitude, Model model) {
         //Car myCar = carService.getMyCar();
         Optional<Car> foundCar = myCar.findById(id);
         if (foundCar.isPresent()) {
             Car _car = foundCar.get();
             _car.setCoordinates(latitude, dirLatitude, longitude, dirLongitude);
             myCar.save(_car);
+            model.addAttribute(_car);
         }
         return "mainpage";
     }
